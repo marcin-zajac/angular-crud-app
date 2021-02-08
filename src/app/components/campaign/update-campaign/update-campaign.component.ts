@@ -90,7 +90,7 @@ export class UpdateCampaignComponent implements OnInit {
 
 
   cancel(): void {
-    this.router.navigate(['/products']);
+    this.router.navigate(['/campaigns']);
   }
 
   add(event: MatChipInputEvent): void {
