@@ -17,7 +17,7 @@ app.use('/api/products', require('./api/routes/products'));
 const PORT = process.env.PORT || 3000;
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('frontend/dist/frontend'))
+  app.use(express.static('dist/frontend'))
 }
 
 
