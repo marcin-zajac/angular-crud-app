@@ -5,6 +5,7 @@ import { ProductService } from '../../product/product.service';
 import { CampaignModel } from '../campaign-model';
 import { CampaignService } from '../campaign.service'
 
+
 @Component({
   selector: 'app-read-campaign',
   templateUrl: './read-campaign.component.html',
@@ -20,8 +21,7 @@ export class ReadCampaignComponent implements OnInit {
   constructor(
     private campaignService: CampaignService,
     private productService: ProductService,
-    // private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -66,5 +66,6 @@ export class ReadCampaignComponent implements OnInit {
     event?.stopPropagation()
     this.router.navigate([`/campaigns/edit/${campaignId}`])
   }
+
 
 }

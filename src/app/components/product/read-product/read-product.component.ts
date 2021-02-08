@@ -29,7 +29,6 @@ export class ReadProductComponent implements OnInit {
 
   }
 
-
   ngOnInit(): void {
     this.read();
   }
