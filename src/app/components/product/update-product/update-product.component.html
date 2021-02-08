@@ -1,0 +1,26 @@
+
+<mat-card>
+  <mat-card-title>Update your product</mat-card-title>
+  <form>
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+
+          <mat-form-field class="input">
+            <input matInput placeholder='product name' [(ngModel)]='product.name' name='name'>
+          </mat-form-field>
+          <mat-form-field class="input">
+            <input matInput placeholder='price' [(ngModel)]='product.price' name='price'>
+          </mat-form-field>
+          <mat-form-field class="input">
+            <input matInput placeholder='description' [(ngModel)]='product.description' name='description'>
+          </mat-form-field>
+
+      </div>
+  </form>
+  <button mat-raised-button (click)='updateProduct()' color='primary' class="button">
+    Update
+  </button>
+
+  <button mat-raised-button (click)='cancel()' color='danger' class="button">
+    Cancel
+  </button>
+</mat-card>

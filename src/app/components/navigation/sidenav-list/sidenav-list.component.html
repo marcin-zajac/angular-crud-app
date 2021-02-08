@@ -1,0 +1,24 @@
+<mat-sidenav-container>
+  <!-- <mat-sidenav-content>Easy Angular CRUD app</mat-sidenav-content> -->
+  <mat-nav-list>
+    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
+      <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+    </a>
+    <a mat-list-item routerLink="/products" (click)="onSidenavClose()">
+      <mat-icon>storefront</mat-icon>
+      <span class="nav-caption">Products</span>
+    </a>
+    <a mat-list-item routerLink="/campaigns" (click)="onSidenavClose()">
+      <mat-icon>local_offer</mat-icon><span class="nav-caption">Campaigns</span>
+    </a>
+    <mat-list-item [matMenuTriggerFor]="menu">
+      <mat-icon>unfold_more</mat-icon>
+      <a matline>Example</a>
+    </mat-list-item>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="onSidenavClose()">View profile</button>
+      <button mat-menu-item (click)="onSidenavClose()">Add contact</button>
+    </mat-menu>
+  </mat-nav-list>
+</mat-sidenav-container>

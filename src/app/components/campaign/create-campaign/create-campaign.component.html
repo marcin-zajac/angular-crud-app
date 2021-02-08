@@ -1,0 +1,120 @@
+<mat-card>
+  <mat-card-title>New campaign</mat-card-title>
+
+  <mat-radio-group aria-label="Select an option" >
+    <p class="radio-group">Campaign Status: * </p>
+    <mat-radio-button class="radio-button" (click)="setCampaignStatus(true)" [checked]="campaign.status" value="1">Active</mat-radio-button>
+    <mat-radio-button class="radio-button" (click)="setCampaignStatus(false)" [checked]="!campaign.status" value="0">Disabled</mat-radio-button>
+  </mat-radio-group>
+  
+  <form>
+    <div fxLayout="column" fxLayoutAlign="space-around center">
+      <mat-form-field class="input">
+        <input
+          matInput
+          placeholder="campaign name"
+          [(ngModel)]="campaign.name"
+          name="name"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field class="example-chip-list input">
+        <mat-label>Campaign keywords</mat-label>
+        <mat-chip-list #chipList>
+          <mat-chip
+            *ngFor="let keyword of keywords"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="remove(keyword)"
+          >
+            {{ keyword }}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input
+            placeholder="New keyword..."
+            #fruitInput
+            [formControl]="keywordCtrl"
+            [matAutocomplete]="auto"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event)"
+            required
+          />
+        </mat-chip-list>
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          (optionSelected)="selected($event)"
+        >
+          <mat-option
+            *ngFor="let keyword of filteredKeywords | async"
+            [value]="keyword"
+          >
+            {{ keyword }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+
+
+      <mat-form-field class="input">
+        <input
+          matInput
+          placeholder="Bid Amount"
+          [(ngModel)]="campaign.bidAmount"
+          name="bidAmount"
+          required
+        />
+      </mat-form-field>
+      
+      <mat-form-field class="input">
+        <input
+        matInput
+        placeholder="Campaign funds"
+        [(ngModel)]="campaign.campaignFund"
+        name="campaignFund"
+        required
+        />
+      </mat-form-field>
+
+      <mat-form-field class="input">
+        <input
+        matInput
+        placeholder="Radius"
+        [(ngModel)]="campaign.radius"
+        name="radius"
+        required
+        />
+      </mat-form-field>
+      
+      
+      <mat-form-field appearance="fill" class="input">
+        <mat-label>Town *</mat-label>
+        <mat-select [(ngModel)]="campaign.town" name="town">
+          <mat-option *ngFor="let town of towns" [value]="town.value">
+            {{town.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+    </div>
+
+
+
+
+
+
+  </form>
+  <button
+    mat-raised-button
+    (click)="createCampaign()"
+    color="primary"
+    class="button"
+  >
+    Create
+  </button>
+
+  <button mat-raised-button (click)="cancel()" color="danger" class="button">
+    Cancel
+  </button>
+</mat-card>

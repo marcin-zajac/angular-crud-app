@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <span fxHide.gt-xs class="spacer"></span>
+
+  <button mat-icon-button fxHide.xs class="home-icon"[routerLink]="'/home'">
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <span>Easy Angular CRUD</span>
+  <span class="spacer"></span>
+  <a mat-basic-button fxHide.xs routerLink="/products">Products</a>
+  <a mat-basic-button fxHide.xs routerLink="/campaigns">Campaign</a>
+
+  <span class="spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>

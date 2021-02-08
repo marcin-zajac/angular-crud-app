@@ -1,0 +1,120 @@
+<mat-card class="campaigns-headeer mat-elevation-z3">
+  <mat-card-title class="title">Campaigns page</mat-card-title>
+  <mat-card-subtitle class="subtitle">
+    Your campaigns are here. You can view, modyfie and delete each one 
+  </mat-card-subtitle>
+</mat-card>
+
+
+<mat-accordion>
+  <ng-template ngFor let-campaign="$implicit" [ngForOf]="campaigns">
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title class="align-center">
+          {{ campaign.name }}
+        </mat-panel-title>
+
+        <mat-panel-description fxHide.xs class="align-center">
+          {{getProductsName(products, campaign.productId)}}
+        </mat-panel-description>
+
+        <button
+          mat-button
+          (click)="clickEditHandler($event, campaign._id)"
+          color="primary"
+          class="button"
+        >
+          Edit
+        </button>
+
+        <button
+          mat-button
+          (click)="delete($event, campaign)"
+          color="warn"
+          class="button"
+        >
+          Delete
+        </button>
+      </mat-expansion-panel-header>
+
+
+
+      <div fxLayout="row" fxLayoutAlign="center">
+
+      <mat-list role="list" fxLayout="column" fxLayoutAlign="space-around" class="campaign-list">
+        <div>
+          <mat-list-item role="listitem">
+            <p>Campaign name</p>
+            <span class="spacer"></span>
+            <p>{{ campaign.name }}</p>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <p>Porduct name</p>
+            <span class="spacer"></span>
+            <a mat-button color="primary" class="productLink" routerLink="/products/edit/{{campaign.productId}}" target="_blank">{{getProductsName(products, campaign.productId)}}</a>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <p>Keywords</p>
+
+            <span class="spacer"></span>
+            <ng-template
+              ngFor
+              let-keyword="$implicit"
+              [ngForOf]="campaign.keywords"
+            >
+              <p class="keyword" color="primary">{{ keyword }}</p>
+            </ng-template>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <p>Status</p>
+            <span class="spacer"></span>
+            <div *ngIf="campaign.status; else elseBlock">
+              <mat-icon class="green-icon">check_circle_outlined</mat-icon>
+            </div>
+            <ng-template #elseBlock>
+              <mat-icon class="red-icon">block</mat-icon></ng-template
+            >
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <p>Bid amount</p>
+            <span class="spacer"></span>
+            <p>{{ campaign.bidAmount }} $</p>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <p>Campaign fund</p>
+            <span class="spacer"></span>
+            <p>{{ campaign.campaignFund }} $</p>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <p>Town</p>
+            <span class="spacer"></span>
+            <p>{{ campaign.town }}</p>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <p>Radius</p>
+            <span class="spacer"></span>
+            <p>{{ campaign.radius }}</p>
+          </mat-list-item>
+        </div>
+      </mat-list>
+
+
+
+    </div>
+
+
+
+
+    </mat-expansion-panel>
+  </ng-template>
+</mat-accordion>

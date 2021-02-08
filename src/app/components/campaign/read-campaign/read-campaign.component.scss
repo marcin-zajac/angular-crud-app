@@ -1,0 +1,58 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+.panel{
+    max-width: 50%;
+}
+
+.campaigns-headeer{
+    margin-bottom: 30px;
+}
+
+.button{
+    margin: 3px;
+}
+
+.align-center{
+align-items: center;}
+
+.keyword{
+    font-style: italic;
+    margin-left: 20px;
+    color: #283593
+}
+
+.green-icon{
+    color: green;
+}
+.red-icon{
+    color: red;
+}
+
+.productLink{
+    text-decoration: underline;
+}
+
+.campaign-list{
+    min-width: 90vw;
+
+    @media(min-width: 600) {
+        min-width: 70vw;
+    }
+    @media(min-width: 840px) {
+        min-width: 50vw;
+    }
+    @media(min-width: 960px) {
+        min-width: 40vw;
+    }
+    @media(min-width: 1280px) {
+        min-width: 30vw;
+    }
+    @media(min-width: 1440px) {
+        min-width: 25vw;
+    }
+
+}
+
+// height: calc( 100vh - 70px );
+// }
