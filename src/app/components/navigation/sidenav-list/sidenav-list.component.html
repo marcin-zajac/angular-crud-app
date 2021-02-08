@@ -11,11 +11,6 @@
     <a mat-list-item routerLink="/campaigns" (click)="onSidenavClose()">
       <mat-icon>local_offer</mat-icon><span class="nav-caption">Campaigns</span>
     </a>
-    <mat-list-item [matMenuTriggerFor]="menu">
-      <mat-icon>unfold_more</mat-icon>
-      <a matline>Example</a>
-    </mat-list-item>
-
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="onSidenavClose()">View profile</button>
       <button mat-menu-item (click)="onSidenavClose()">Add contact</button>
